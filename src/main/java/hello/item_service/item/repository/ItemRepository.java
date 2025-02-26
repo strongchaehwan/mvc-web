@@ -24,7 +24,6 @@ public class ItemRepository {
 
     public void delete(Long itemId) {
         store.remove(itemId);
-
     }
 
     public Item findById(Long itemId) {
@@ -40,10 +39,6 @@ public class ItemRepository {
         findItem.setItemName(itemUpdateDto.getItemName());
         findItem.setPrice(itemUpdateDto.getPrice());
         findItem.setQuantity(itemUpdateDto.getQuantity());
-    }
-
-    public void deleteItem(Long itemId) {
-        store.remove(itemId);
     }
 
     public void clearStore() {

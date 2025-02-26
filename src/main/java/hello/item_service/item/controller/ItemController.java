@@ -67,7 +67,7 @@ public class ItemController {
 
 
     /**
-     *
+     * PRG(post->redirect->get)
      */
     @PostMapping("/add")
     public String saveV3(@ModelAttribute ItemRegisterDto itemRegisterDto, RedirectAttributes redirectAttributes) {
@@ -89,12 +89,11 @@ public class ItemController {
     @PostMapping("/{itemId}/edit")
     private String edit(@PathVariable(name = "itemId") Long itemId, @ModelAttribute ItemUpdateDto itemUpdateDto) {
         itemRepository.update(itemId, itemUpdateDto);
-        Item item = itemRepository.findById(itemId);
-
         return "redirect:/basic/items/{itemId}";
     }
 
 
+    // 삭제
     @PostMapping("/{itemId}/delete")
     public String delete(@PathVariable(name = "itemId") Long itemId) {
         itemRepository.delete(itemId);
