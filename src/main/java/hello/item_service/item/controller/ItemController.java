@@ -86,6 +86,12 @@ public class ItemController {
         return "basic/editForm";
     }
 
+    /**
+     * POST -> redirect -> get
+     * @param itemId
+     * @param itemUpdateDto
+     * @return
+     */
     @PostMapping("/{itemId}/edit")
     private String edit(@PathVariable(name = "itemId") Long itemId, @ModelAttribute ItemUpdateDto itemUpdateDto) {
         itemRepository.update(itemId, itemUpdateDto);
